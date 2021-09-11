@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Health Record Login</title>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/css/login/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+</head>
+
+<body>
+   
+        <!-- login form -->
+    <section class="w3l-login">
+        <div class="overlay">
+            <div class="wrapper">
+                <div class="logo">
+                    <a class="brand-logo" href="index.html">Sign In To Health Medical Record</a>
+                </div>
+                <div class="form-section">
+                    <h3>@localizer["login"]</h3>
+                    <h6>@localizer["continue"]</h6>
+                    <form action="#" method="post" class="signin-form">
+                        <div class="form-input">
+                            <input type="text" name="Username" placeholder="Username" required="" autofocus>
+                        </div>
+                        <div class="form-input">
+                            <input type="password" name="password" placeholder="Password" required="">
+                        </div>
+                        <label class="check-remaind">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <p class="remember">@localizer["rememberMe"]</p>
+                        </label>
+                        <button type="submit" class="btn btn-primary theme-button mt-4">@localizer["login"]</button>
+                        <div class="new-signup">
+                            <a href="#reload" class="signuplink">@localizer["forgotUsername"]</a>
+                        </div>
+                    </form>
+                    <p class="signup">@localizer["noAccount"]? <a href="#signup.html" class="signuplink">@localizer["signUp"]</a></p>
+                </div>
+            </div>
+        </div>
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+
+        <!-- //copyright -->
+    </section>
+        <!-- /login form -->
+    </body>
+
+</html>

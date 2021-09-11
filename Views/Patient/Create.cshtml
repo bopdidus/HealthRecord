@@ -1,0 +1,113 @@
+﻿@model HealthRecord.Models.ViewModels.PatientViewModel
+@{
+    Layout = "_AdminLayout";
+}
+
+<br />
+<div class="container">
+    @using (Html.BeginForm(new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <fieldset>
+                <legend>Identit&eacute;</legend>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @for = "first" })
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @id = "first", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Birthdate, htmlAttributes: new { @for = "birth" })
+                        @Html.EditorFor(model => model.Birthdate, new { htmlAttributes = new { @class = "form-control", @id = "birth", @type = "date", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @for = "last" })
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @id = "last", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NumCNI, htmlAttributes: new { @for = "cni" })
+                        @Html.EditorFor(model => model.NumCNI, new { htmlAttributes = new { @class = "form-control", @id = "cni" } })
+                        @Html.ValidationMessageFor(model => model.NumCNI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+
+        <div class="row">
+            <fieldset>
+                <legend>Residence</legend>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.City, htmlAttributes: new { @for = "city" })
+                        @Html.DropDownListFor(model => model.City, new SelectList(new List<string>()), "please select", new { @class = "form-control custom-select", @id = "city", @required = "required" })
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Quater, htmlAttributes: new { @for = "quater" })
+                        @Html.EditorFor(model => model.Quater, new { htmlAttributes = new { @class = "form-control", @id = "quater" } })
+                        @Html.ValidationMessageFor(model => model.Quater, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="row">
+            <fieldset>
+                <legend>Contacts</legend>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @for = "phone" })
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @id = "phone", @type = "tel", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @for = "email" })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @id = "email", @type = "email", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="row">
+            <fieldset>
+                <legend></legend>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Marital, htmlAttributes: new { @for = "city" })
+                        @Html.DropDownListFor(model => model.Marital, new SelectList(new List<string>() { "Married", "Divorced", "Widower", "Single" }), "please select", new { @class = "form-control custom-select", @required = "required" })
+                        @Html.ValidationMessageFor(model => model.Marital, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Street, htmlAttributes: new { @for = "allergy" })
+                        @Html.TextAreaFor(model => model.Street, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" formaction=@Url.Action("Create") formmethod="post" />
+        </div>
+
+    }
+</div>

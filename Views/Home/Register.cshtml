@@ -1,0 +1,166 @@
+﻿@model HealthRecord.Models.ViewModels.PatientViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Health Medical Record</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Quick Register Form Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <link href="~/css/register/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/font/css/all.css" />
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+</head>
+<body>
+    <div class="w3l-head">
+        <h1>Sign Up and Get Your Online Record</h1>
+    </div>
+    <div class="w3ls-form">
+        <form action="home/CreatePatient" medthod="post">
+            <div class="w3l-last-grid1">
+                <div class="w3l-grid1">
+                    <label class="text">First name</label>
+                    <div class="w3l-div">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" name="name" placeholder="first name" value="@Model.FirstName" required />
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="w3l-grid2">
+                    <label class="text">Last name</label>
+                    <div class="w3l-div">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" name="name" placeholder="last name" required value="@Model.LastName"/>
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="w3l-last-grid1">
+                <div class="w3l-grid1">
+                    <label class="text">gender</label>
+                    <div class="w3l-div">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <select class="form-control" value="@Model.FirstName" required>
+                            <option>gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                        <!---728x90--->
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="w3l-grid2">
+                    <label class="text">date of birth</label>
+                    <div class="w3l-div">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <input type="text" class="date" id="datepicker" name="date of birth" placeholder="dob" value="MM/DD/YYYY" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'MM/DD/YYYY';}" required />
+                        @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="w3l-last-grid1">
+                <div class="w3l-grid1">
+                    <label class="text">Your Email</label>
+                    <div class="w3l-div">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <input type="email" name="email" placeholder="e-mail" value="@Model.Email" required />
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="w3l-grid2">
+                    <label class="text">phone number</label>
+                    <div class="w3l-div">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <input type="text" name="contact" placeholder="phone number" value="@Model.PhoneNumber" required />
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="w3l-last-grid1">
+                <div class="w3l-grid1">
+                    <label class="text">address</label>
+                    <div class="w3l-div">
+                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                        <input type="text" name="address" placeholder="current address" value="@Model.Country" required />
+                        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="w3l-grid2">
+                    <label class="text">city</label>
+                    <div class="w3l-div">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <input type="text" name="city" placeholder="city" required />
+                        @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="w3l-right-grid1">
+                <div class="w3l-grid1">
+                    <label class="text">state</label>
+                    <div class="w3l-div">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <input type="text" name="state" placeholder="state/province" required />
+                        @Html.ValidationMessageFor(model => model.Quater, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="w3l-grid2">
+                    <label class="text">zipcode</label>
+                    <div class="w3l-div">
+                        <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                        <input type="text" name="zipcode" placeholder="postal" required />
+                        @Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-danger" })
+                        <!---728x90--->
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="w3l-right-grid1">
+                <div class="w3l-grid1">
+                    <label class="text">Are you handicapped? <span>?</span></label>
+                    <div class="w3l-div">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        <select class="form-contro3" required="">
+                            <option>select an answer</option>
+                            <option>yes</option>
+                            <option>no</option>
+                        </select>
+                    </div>
+                </div>
+                <label class="text">Have you an allergy?</label>
+                <div class="w3l-grid2">
+                    <div class="w3l-div">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <select class="form-contro2" required="">
+                            <option>select an answer</option>
+                            <option>yes</option>
+                            <option>no</option>
+                            <option>I don't know'</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="w3ls-submit">
+                <!---728x90--->
+                <input type="submit" value="Create your record">
+            </div>
+        </form>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker,#datepicker1").datepicker();
+        });
+    </script>
+</body>
+</html>
